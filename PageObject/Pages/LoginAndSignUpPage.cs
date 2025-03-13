@@ -25,10 +25,18 @@ namespace PageObject.Pages
             return loginError;
         }
 
-        public string EmptyFieldErrorMessage()
-        {
-            var emptyField = Driver.FindElement(By.XPath("//p[normalize-space(text())='Your email or password is incorrect!']")).Text;
-            return emptyField;
+
+        public string GetValidationMessage(string fieldId)
+        {           
+              
+                IWebElement inputField = Driver.FindElement(By.CssSelector($"input[data-qa='{fieldId}']"));
+                // Get the browser-generated validation message
+                string message = inputField.GetAttribute("validationMessage");
+                // Return the validation message
+                return message;          
         }
     }
 }
+
+   
+
