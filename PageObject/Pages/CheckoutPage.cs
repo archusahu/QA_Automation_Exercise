@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace PageObject.Pages
 {
-    class CheckoutPage
+    public class CheckoutPage : BasePage
     {
+        public CheckoutPage(IWebDriver driver) : base(driver)
+        {
+        }
     }
 }
