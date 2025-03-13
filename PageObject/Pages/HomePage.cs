@@ -36,6 +36,14 @@ namespace PageObject.Pages
             return pageTitle;
         }
 
+        public LoginAndSignUpPage ClickOnLogout()
+        {
+            var clickLogout = Driver.FindElement(By.PartialLinkText("Logout"));
+            clickLogout.Click();
+
+            return new LoginAndSignUpPage(Driver);
+        }
+
 
 
     }
