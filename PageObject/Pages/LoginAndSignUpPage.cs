@@ -29,7 +29,7 @@ namespace PageObject.Pages
         public string GetValidationMessage(string fieldId)
         {           
               
-                IWebElement inputField = Driver.FindElement(By.CssSelector("input[data-qa='login-email']"));
+                IWebElement inputField = Driver.FindElement(By.CssSelector($"input[data-qa='{fieldId}']"));
                 // Get the browser-generated validation message
                 string message = inputField.GetAttribute("validationMessage");
                 // Return the validation message
