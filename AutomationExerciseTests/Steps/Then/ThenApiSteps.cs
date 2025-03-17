@@ -34,7 +34,7 @@ namespace AutomationExerciseTests.Steps.Then
             var expectedResData = JsonConvert.DeserializeObject<ProductsListResponse>(expectedResponse);
             var actualResponseData = JsonConvert.DeserializeObject<ProductsListResponse>(_context.ApiResponse.Content);
             Console.WriteLine($"response content - {_context.ApiResponse.Content}");
-            actualResponseData.Should().BeEquivalentTo(expectedResData); hello
+            actualResponseData.Should().BeEquivalentTo(expectedResData);
         }
 
     }
