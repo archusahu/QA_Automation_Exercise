@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Net;
 
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace AutomationExerciseTests.Steps.Then
 {
@@ -20,12 +21,13 @@ namespace AutomationExerciseTests.Steps.Then
             _context = context;
         }
 
-        [Then(@"response should be '([^']*)'")]
-        public void ThenResponseShouldBe(HttpStatusCode expectedResponseCode)
+        [Then(@"response status code should be '([^']*)'")]
+        public void ThenResponseStatusCodeShouldBe(HttpStatusCode expectedResponseCode)
         {
             var actualResponseCode = _context.ApiResponse.StatusCode;
             actualResponseCode.Should().Be(expectedResponseCode);
         }
+
 
         [Then(@"response should contain '([^']*)' data")]
         public void ThenResponseShouldContainData(string fileName)
@@ -35,6 +37,28 @@ namespace AutomationExerciseTests.Steps.Then
             var actualResponseData = JsonConvert.DeserializeObject<ProductsListResponse>(_context.ApiResponse.Content);
             Console.WriteLine($"response content - {_context.ApiResponse.Content}");
             actualResponseData.Should().BeEquivalentTo(expectedResData);
+        }
+
+        [Then(@"response should contain message '([^']*)'")]
+        public void ThenResponseShouldContainMessage(string expectedMessage)
+        {
+            var actualResponseContent = _context.ApiResponse.Content;
+            actualResponseContent.Should().Contain(expectedMessage);
+        }
+
+        [Then(@"response content contains '([^']*)' response code")]
+        public void ThenResponseContentContainsResponseCode(string expectedResponseCode)
+        {
+            var actualResponseContent = _context.ApiResponse.Content;
+            actualResponseContent.Should().Contain(expectedResponseCode);
+        }
+
+        [Then(@"response contians")]
+        public void ThenResponseContians(Table table)
+        {
+            var expectedMessage = table.CreateInstance<ErrorResponseModel>();
+            var actualResponseData = JsonConvert.DeserializeObject<ErrorResponseModel>(_context.ApiResponse.Content);
+            actualResponseData.Should().BeEquivalentTo(expectedMessage);
         }
 
     }

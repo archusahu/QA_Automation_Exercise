@@ -18,5 +18,12 @@ namespace AutomationExerciseTests.Steps.When
             _context.ApiResponse = _context.ApiClient.SendGetRequest("https://automationexercise.com/api/productsList");
         }
 
+        [When(@"post all products list")]
+        public void WhenPostAllProductsList()
+        {
+            _context.ApiResponse = _context.ApiClient.SendPostRequest("https://automationexercise.com/api/productsList", "");
+        }
+
+
     }
 }
