@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObject", "PageObject\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationExerciseTests", "..\..\..\..\..\source\repos\AutomationExerciseTestRepo\AutomationExerciseTests\AutomationExerciseTests.csproj", "{82317AFE-25B2-40B7-DF44-E9A92FA7C4A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{B69E3B17-4C4E-4B46-85C1-4394E1551DCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{82317AFE-25B2-40B7-DF44-E9A92FA7C4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82317AFE-25B2-40B7-DF44-E9A92FA7C4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82317AFE-25B2-40B7-DF44-E9A92FA7C4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B69E3B17-4C4E-4B46-85C1-4394E1551DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69E3B17-4C4E-4B46-85C1-4394E1551DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69E3B17-4C4E-4B46-85C1-4394E1551DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69E3B17-4C4E-4B46-85C1-4394E1551DCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
