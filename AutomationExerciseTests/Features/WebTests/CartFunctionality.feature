@@ -1,8 +1,10 @@
-﻿Feature: Cart Functionality
+﻿
+@Web
+Feature: Cart Functionality
 
 A short summary of the feature
 
-@tag1
+
 Scenario: Add item to cart and verify cart count increases
     Given user is logged in  
     When user adds 'Sauce Labs Backpack' to the cart  

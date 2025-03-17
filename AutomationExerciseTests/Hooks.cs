@@ -1,5 +1,10 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using ApiClient;
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
 using TechTalk.SpecFlow;
+
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
@@ -9,25 +14,36 @@ namespace AutomationExerciseTests
     [Binding]
     public class Hooks
     {
-        private static ChromeDriver _driver; //The actual WebDriver instance created (e.g., new ChromeDriver()).
+        private readonly Context _context; // Injected context
+        private IWebDriver _driver; // Non-static WebDriver instance
 
-
-        [BeforeScenario]
-
-        public void BeforeScenario(Context context)
+        public Hooks(Context context)
         {
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            _driver = new ChromeDriver();// Create WebDriver instance
-            context.Driver = _driver;// Store it in context for later use, so it can be accessed in different step definitions.
+            _context = context; // Store context for later use            
         }
 
-        [AfterScenario]
-        public void AfterScenario(Context context)
+        [BeforeScenario("Api", "api")]
+        public void BeforeScenarioApi()
         {
-            _driver.Close(); // Closes the browser
-            _driver.Quit();
-            _driver.Dispose();// Frees up resources
+            _context.ApiClient = new Client("https://automationexercise.com/api/");
+        }
 
+        [BeforeScenario("Web", "web")]
+        public void BeforeScenario()
+        {
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            _driver = new ChromeDriver(); // Create WebDriver instance
+            _context.Driver = _driver; // Store in context so steps can access it
+        }
+
+        [AfterScenario("Web", "web")]
+        public void AfterScenario()
+        {
+            if (_driver != null)
+            {
+                _driver.Quit(); // Ensure WebDriver is properly closed
+                _driver.Dispose(); // Free up resources
+            }
         }
     }
 }

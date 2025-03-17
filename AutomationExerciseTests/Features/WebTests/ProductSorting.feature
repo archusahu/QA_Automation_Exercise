@@ -1,8 +1,8 @@
-﻿Feature: Product Sorting
+﻿@Web
+Feature: Product Sorting
 
 A short summary of the feature
 
-@tag1
 Scenario: Verify items are sorted when sort is 'Price (low to high)'
     Given user is logged in  
     When user selects 'Price (low to high)' from the sorting dropdown  
