@@ -1,4 +1,6 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Net;
+
+using TechTalk.SpecFlow;
 
 namespace AutomationExerciseTests.Steps.When
 {
@@ -40,6 +42,12 @@ namespace AutomationExerciseTests.Steps.When
         public void WhenPost(string endpoint)
         {
             _context.ApiResponse = _context.ApiClient.SendPostRequest(endpoint, "");
+        }       
+
+        [When(@"post '([^']*)' with '([^']*)' and '([^']*)'")]
+        public void WhenPostWithAnd(string endpoint, string userId, string password)
+        {
+            _context.ApiResponse = _context.ApiClient.SendPostLoginRequest(endpoint, userId, password);
         }
 
     }

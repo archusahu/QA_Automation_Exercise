@@ -57,7 +57,7 @@ namespace AutomationExerciseTests.Steps.Then
         public void ThenResponseContians(Table table)
         {
             var expectedMessage = table.CreateInstance<ErrorResponseModel>();
-            var actualResponseData = JsonConvert.DeserializeObject<ErrorResponseModel>(_context.ApiResponse.Content);
+            var actualResponseData = JsonConvert.DeserializeObject<ErrorResponseModel>(_context.ApiResponse.Content);            
             actualResponseData.Should().BeEquivalentTo(expectedMessage);
         }
 
@@ -70,7 +70,5 @@ namespace AutomationExerciseTests.Steps.Then
             Console.WriteLine($"response content - {_context.ApiResponse.Content}");
             actualResponseData.Should().BeEquivalentTo(expectedResData);
         }
-
-
     }
 }

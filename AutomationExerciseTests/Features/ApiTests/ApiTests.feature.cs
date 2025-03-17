@@ -250,6 +250,98 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute(": 06 PUT To All Brands List")]
+        [NUnit.Framework.CategoryAttribute("Api")]
+        public void _06PUTToAllBrandsList()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Api"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(": 06 PUT To All Brands List", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 44
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 45
+ testRunner.When("post \'brandsList\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 46
+ testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ResponseCode",
+                            "Message"});
+                table4.AddRow(new string[] {
+                            "405",
+                            "This request method is not supported."});
+#line 47
+ testRunner.And("response contians", ((string)(null)), table4, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("07 POST To Verify Login with valid details")]
+        [NUnit.Framework.CategoryAttribute("Api")]
+        [NUnit.Framework.TestCaseAttribute("automationtest1@gmail.com", "1234", "200", "User exists!", null)]
+        [NUnit.Framework.TestCaseAttribute("", "1234", "404", "User not found!", null)]
+        [NUnit.Framework.TestCaseAttribute("automationtest1@gmail.com", "", "404", "User not found!", null)]
+        [NUnit.Framework.TestCaseAttribute("", "", "404", "User not found!", null)]
+        [NUnit.Framework.TestCaseAttribute("automationtest-xyz@gmail.com", "1234", "404", "User not found!", null)]
+        [NUnit.Framework.TestCaseAttribute("automationtest-xyz", "1234", "404", "User not found!", null)]
+        [NUnit.Framework.TestCaseAttribute("automationtest1@gmail.com", "}({", "404", "User not found!", null)]
+        public void _07POSTToVerifyLoginWithValidDetails(string userId, string password, string responseCode, string message, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Api"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("UserId", userId);
+            argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("ResponseCode", responseCode);
+            argumentsOfScenario.Add("Message", message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07 POST To Verify Login with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 53
+ testRunner.When(string.Format("post \'verifyLogin\' with \'{0}\' and \'{1}\'", userId, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 54
+ testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ResponseCode",
+                            "Message"});
+                table5.AddRow(new string[] {
+                            string.Format("{0}", responseCode),
+                            string.Format("{0}", message)});
+#line 55
+ testRunner.And("response contians", ((string)(null)), table5, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

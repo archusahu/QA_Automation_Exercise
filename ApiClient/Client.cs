@@ -24,5 +24,14 @@ namespace ApiClient
             request.AddJsonBody(body);
             return _restClient.Execute(request);
         }
+
+        public RestResponse SendPostLoginRequest(string url, string userId, string pwd)
+        {
+            var request = new RestRequest(url) { Method = Method.Post };
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("email", userId);
+            request.AddParameter("password", pwd);            
+            return _restClient.Execute(request);
+        }
     }
 }
