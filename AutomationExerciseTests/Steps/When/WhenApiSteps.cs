@@ -24,6 +24,23 @@ namespace AutomationExerciseTests.Steps.When
             _context.ApiResponse = _context.ApiClient.SendPostRequest("https://automationexercise.com/api/productsList", "");
         }
 
+        [When(@"post search product")]
+        public void WhenPostSearchProduct()
+        {
+            _context.ApiResponse = _context.ApiClient.SendPostRequest("https://automationexercise.com/api/searchProduct", "");
+        }
+
+        [When(@"get '([^']*)'")]
+        public void WhenGet(string endpoint)
+        {
+            _context.ApiResponse = _context.ApiClient.SendGetRequest(endpoint);
+        }
+
+        [When(@"post '([^']*)'")]
+        public void WhenPost(string endpoint)
+        {
+            _context.ApiResponse = _context.ApiClient.SendPostRequest(endpoint, "");
+        }
 
     }
 }

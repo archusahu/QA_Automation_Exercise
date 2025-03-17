@@ -23,6 +23,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="Resource\brands-list-response.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Resource\products-list-response.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

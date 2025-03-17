@@ -2,18 +2,43 @@
 
 A short summary of the feature
 
-@Api
+	@Api
 Scenario: 01 Get All products list
-	When get all products list
+	When get 'productsList'
 	Then response status code should be 'OK'
 	And response should contain 'products-list-response' data
 
-@Api
+	@Api
 Scenario: 02 POST To All Products List
-	When post all products list
+	When post 'productsList'
 	Then response status code should be 'OK'
 	#And response content contains '405' response code
 	#And response should contain message 'This request method is not supported.' 
 	And response contians
-	| ResponseCode | Message                               |
-	| 405          | This request method is not supported. |
+		| ResponseCode | Message                               |
+		| 405          | This request method is not supported. |
+
+	@Api
+Scenario: 03 POST To Search Product without search_product parameter
+	When post 'searchProduct'
+	Then response status code should be 'OK'
+	And response contians
+		| ResponseCode | Message                                                           |
+		| 400          | Bad request, search_product parameter is missing in POST request. |
+
+	@Api
+Scenario: : 04 Get All Brands List
+	When get 'brandsList'
+	Then response status code should be 'OK'
+	And response should contain all 'brands-list-response' data
+
+	@Api
+Scenario: : 05 PUT To All Brands List
+	When post 'brandsList'
+	Then response status code should be 'OK'
+	And response contians
+		| ResponseCode | Message                                                           |
+		| 405          | This request method is not supported. |
+
+
+

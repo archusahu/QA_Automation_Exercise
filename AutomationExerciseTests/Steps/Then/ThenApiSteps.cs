@@ -61,5 +61,16 @@ namespace AutomationExerciseTests.Steps.Then
             actualResponseData.Should().BeEquivalentTo(expectedMessage);
         }
 
+        [Then(@"response should contain all '([^']*)' data")]
+        public void ThenResponseShouldContainAllData(string FileBrandList)
+        {
+            var expectedResponse = File.ReadAllText($"Resource\\{FileBrandList}.json").Replace("\r", "").Replace("\n", "");
+            var expectedResData = JsonConvert.DeserializeObject<BrandsListResponse>(expectedResponse);
+            var actualResponseData = JsonConvert.DeserializeObject<BrandsListResponse>(_context.ApiResponse.Content);
+            Console.WriteLine($"response content - {_context.ApiResponse.Content}");
+            actualResponseData.Should().BeEquivalentTo(expectedResData);
+        }
+
+
     }
 }
