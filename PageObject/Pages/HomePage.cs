@@ -1,6 +1,7 @@
 ﻿
 
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace PageObject.Pages
@@ -44,6 +45,18 @@ namespace PageObject.Pages
             return new LoginAndSignUpPage(Driver);
         }
 
+        public ProdutDetailsPage ClickOnViewProduct()
+        {
+            //var blueTopItem = Driver.FindElement(By.XPath("(//div[@class='overlay-content'])[1]/p"));
+            // Perform Mouse Hover
+           // Actions actions = new Actions(Driver);
+           // actions.MoveToElement(blueTopItem).Perform();
+
+            var clickViewProduct = Driver.FindElement(By.XPath("//a[@href = '/product_details/1']"));
+            clickViewProduct.Click();
+            //Driver.FindElement(By.XPath("//div[@class='product-information']//h2[1]")).Text;
+            return new ProdutDetailsPage(Driver);
+        }
 
 
     }
