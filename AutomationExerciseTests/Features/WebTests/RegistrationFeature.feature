@@ -2,7 +2,7 @@
 
 A short summary of the feature
 
-@tag1
+@Web
 Scenario: [scenario name]
 	Given [context]
 	When [action]

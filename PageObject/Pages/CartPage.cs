@@ -13,5 +13,11 @@ namespace PageObject.Pages
         public CartPage(IWebDriver driver) : base(driver)
         {
         }
+
+        public CheckoutPage ClickOnProceedToCheckout()
+        {
+            Driver.FindElement(By.CssSelector("a.btn.btn-default.check_out")).Click();
+            return new CheckoutPage(Driver);
+        }
     }
 }

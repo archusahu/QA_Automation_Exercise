@@ -13,5 +13,10 @@ namespace PageObject.Pages
         public CheckoutPage(IWebDriver driver) : base(driver)
         {
         }
+        public PaymentPage ClickOnPlaceOrder()
+        {
+            Driver.FindElement(By.CssSelector("a.btn.btn-default.check_out")).Click();
+            return new PaymentPage(Driver);
+        }
     }
 }
