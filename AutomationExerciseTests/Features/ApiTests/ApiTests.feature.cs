@@ -144,44 +144,6 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03 POST To Search Product without search_product parameter")]
-        [NUnit.Framework.CategoryAttribute("Api")]
-        public void _03POSTToSearchProductWithoutSearch_ProductParameter()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "Api"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 POST To Search Product without search_product parameter", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 24
- testRunner.When("post \'searchProduct\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 25
- testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "ResponseCode",
-                            "Message"});
-                table2.AddRow(new string[] {
-                            "400",
-                            "Bad request, search_product parameter is missing in POST request."});
-#line 26
- testRunner.And("response contians", ((string)(null)), table2, "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute(": 04 Get All Brands List")]
         [NUnit.Framework.CategoryAttribute("Api")]
         public void _04GetAllBrandsList()
@@ -190,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "Api"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(": 04 Get All Brands List", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 31
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -200,13 +162,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
+#line 25
  testRunner.When("get \'brandsList\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 26
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 35
+#line 28
  testRunner.And("\'brands\' should be in response \'brands-list-response\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -222,7 +184,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "Api"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(": 05 PUT To All Brands List", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 38
+#line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -232,20 +194,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 39
+#line 32
  testRunner.When("post \'brandsList\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 40
+#line 33
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "ResponseCode",
                             "Message"});
-                table3.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "405",
                             "This request method is not supported."});
-#line 41
- testRunner.And("response contians", ((string)(null)), table3, "And ");
+#line 34
+ testRunner.And("response contians", ((string)(null)), table2, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -260,7 +222,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "Api"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(": 06 PUT To All Brands List", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 46
+#line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -270,20 +232,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 40
  testRunner.When("post \'brandsList\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 41
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "ResponseCode",
                             "Message"});
-                table4.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "405",
                             "This request method is not supported."});
-#line 49
- testRunner.And("response contians", ((string)(null)), table4, "And ");
+#line 42
+ testRunner.And("response contians", ((string)(null)), table3, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -314,7 +276,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("ResponseCode", responseCode);
             argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07 POST To Verify Login with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 54
+#line 47
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -324,20 +286,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 55
+#line 48
  testRunner.When(string.Format("post \'verifyLogin\' with \'{0}\' and \'{1}\'", userId, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 60
+#line 53
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "ResponseCode",
                             "Message"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             string.Format("{0}", responseCode),
                             string.Format("{0}", message)});
-#line 61
- testRunner.And("response contians", ((string)(null)), table5, "And ");
+#line 54
+ testRunner.And("response contians", ((string)(null)), table4, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -362,7 +324,45 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Items", items);
             argumentsOfScenario.Add("ResponseFileName", responseFileName);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08 POST To Search Product", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 69
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ParameterName",
+                            "ParameterValue"});
+                table5.AddRow(new string[] {
+                            "search_product",
+                            string.Format("{0}", items)});
+#line 71
+ testRunner.When("post \'searchProduct\' with parameters", ((string)(null)), table5, "When ");
+#line hidden
+#line 74
+ testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
 #line 76
+ testRunner.And(string.Format("\'products\' should be in response \'{0}\'", responseFileName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("03 POST To Search Product without search_product parameter")]
+        [NUnit.Framework.CategoryAttribute("Api")]
+        public void _03POSTToSearchProductWithoutSearch_ProductParameter()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Api"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 POST To Search Product without search_product parameter", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 84
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -375,17 +375,58 @@ this.ScenarioInitialize(scenarioInfo);
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "ParameterName",
                             "ParameterValue"});
-                table6.AddRow(new string[] {
-                            "search_product",
-                            string.Format("{0}", items)});
-#line 78
+#line 85
  testRunner.When("post \'searchProduct\' with parameters", ((string)(null)), table6, "When ");
 #line hidden
-#line 81
+#line 87
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 83
- testRunner.And(string.Format("\'products\' should be in response \'{0}\'", responseFileName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ResponseCode",
+                            "Message"});
+                table7.AddRow(new string[] {
+                            "400",
+                            "Bad request, search_product parameter is missing in POST request."});
+#line 88
+ testRunner.And("response contians", ((string)(null)), table7, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("03 POST To Search Product without search_product parameter sdfg")]
+        [NUnit.Framework.CategoryAttribute("Api")]
+        public void _03POSTToSearchProductWithoutSearch_ProductParameterSdfg()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Api"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 POST To Search Product without search_product parameter sdfg", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 94
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 95
+ testRunner.When("post \'searchProduct\' without parameters", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 96
+ testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ResponseCode",
+                            "Message"});
+                table8.AddRow(new string[] {
+                            "400",
+                            "Bad request, search_product parameter is missing in POST request."});
+#line 97
+ testRunner.And("response contians", ((string)(null)), table8, "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -58,17 +58,16 @@ namespace AutomationExerciseTests.Steps.When
             _context.ApiResponse = _context.ApiClient.PostWithParameters(endpoint, parameterList);
         }
 
-
         [When(@"post '([^']*)' with '([^']*)' and '([^']*)'")]
         public void WhenPostWithAnd(string endpoint, string userId, string password)
         {
             _context.ApiResponse = _context.ApiClient.SendPostLoginRequest(endpoint, userId, password);
-        }       
+        }
 
-        [When(@"post '([^']*)' with '([^']*)'")]
-        public void WhenPostWith(string endpoint, string searchProduct)
-        {
-            _context.ApiResponse = _context.ApiClient.PostSearchProductRequest(endpoint, searchProduct);
+        [When(@"post '([^']*)' without parameters")]
+        public void WhenPostWithoutParameters(string endpoint)
+        {            
+            _context.ApiResponse = _context.ApiClient.PostWithOutParameters(endpoint);
         }
 
     }

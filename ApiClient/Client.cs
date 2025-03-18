@@ -57,5 +57,12 @@ namespace ApiClient
             }
             return _restClient.Execute(request);
         }
+
+        public RestResponse PostWithOutParameters(string endpoint)
+        {
+            var request = new RestRequest(endpoint) { Method = Method.Post };
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");            
+            return _restClient.Execute(request);
+        }
     }
 }

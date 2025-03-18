@@ -19,13 +19,6 @@ Scenario: 02 POST To All Products List
 		| ResponseCode | Message                               |
 		| 405          | This request method is not supported. |
 
-@Api
-Scenario: 03 POST To Search Product without search_product parameter
-	When post 'searchProduct'
-	Then response status code should be 'OK'
-	And response contians
-		| ResponseCode | Message                                                           |
-		| 400          | Bad request, search_product parameter is missing in POST request. |
 
 @Api
 Scenario: : 04 Get All Brands List
@@ -86,9 +79,24 @@ Scenario Outline: 08 POST To Search Product
 	| top    | top-search-response    |
 	| tshirt | tshirt-search-response |
 	| jeans  | jeans-search-response  |
+
+	@Api
+Scenario: 03 POST To Search Product without search_product parameter
+	When post 'searchProduct' with parameters
+	| ParameterName | ParameterValue |
+	Then response status code should be 'OK'
+	And response contians
+		| ResponseCode | Message                                                           |
+		| 400          | Bad request, search_product parameter is missing in POST request. |
 	
 
-
+	@Api
+Scenario: 03 POST To Search Product without search_product parameter sdfg
+	When post 'searchProduct' without parameters
+	Then response status code should be 'OK'
+	And response contians
+		| ResponseCode | Message                                                           |
+		| 400          | Bad request, search_product parameter is missing in POST request. |
 
 
 
