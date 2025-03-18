@@ -327,7 +327,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 55
  testRunner.When(string.Format("post \'verifyLogin\' with \'{0}\' and \'{1}\'", userId, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 56
+#line 60
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -336,7 +336,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table5.AddRow(new string[] {
                             string.Format("{0}", responseCode),
                             string.Format("{0}", message)});
-#line 57
+#line 61
  testRunner.And("response contians", ((string)(null)), table5, "And ");
 #line hidden
             }
@@ -362,7 +362,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Items", items);
             argumentsOfScenario.Add("ResponseFileName", responseFileName);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08 POST To Search Product", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 72
+#line 76
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -372,13 +372,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 73
- testRunner.When(string.Format("post \'searchProduct\' with \'{0}\'", items), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ParameterName",
+                            "ParameterValue"});
+                table6.AddRow(new string[] {
+                            "search_product",
+                            string.Format("{0}", items)});
+#line 78
+ testRunner.When("post \'searchProduct\' with parameters", ((string)(null)), table6, "When ");
 #line hidden
-#line 74
+#line 81
  testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 76
+#line 83
  testRunner.And(string.Format("\'products\' should be in response \'{0}\'", responseFileName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

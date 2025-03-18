@@ -1,6 +1,13 @@
-﻿using System.Net;
+﻿using ApiClient.Models;
+
+using AutomationExerciseTests.Model;
+
+using System.Net;
 
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
+
+using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace AutomationExerciseTests.Steps.When
 {
@@ -42,7 +49,15 @@ namespace AutomationExerciseTests.Steps.When
         public void WhenPost(string endpoint)
         {
             _context.ApiResponse = _context.ApiClient.SendPostRequest(endpoint, "");
-        }       
+        }
+
+        [When(@"post '([^']*)' with parameters")]
+        public void WhenPostWithParameters(string endpoint, Table table)
+        {
+            var parameterList = table.CreateSet<ApiRequestParameterModel>();
+            _context.ApiResponse = _context.ApiClient.PostWithParameters(endpoint, parameterList);
+        }
+
 
         [When(@"post '([^']*)' with '([^']*)' and '([^']*)'")]
         public void WhenPostWithAnd(string endpoint, string userId, string password)

@@ -1,4 +1,8 @@
-﻿using RestSharp;
+﻿using ApiClient.Models;
+
+using RestSharp;
+
+using System;
 
 namespace ApiClient
 {
@@ -40,6 +44,17 @@ namespace ApiClient
             var request = new RestRequest(url) { Method = Method.Post };
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
             request.AddParameter("search_product", product);
+            return _restClient.Execute(request);
+        }
+
+        public RestResponse PostWithParameters(string endpoint, IEnumerable<ApiRequestParameterModel> parameterList)
+        {
+            var request = new RestRequest(endpoint) { Method = Method.Post };
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            foreach(var parameter in parameterList)
+            {
+                request.AddParameter(parameter.ParameterName, parameter.ParameterValue);
+            }
             return _restClient.Execute(request);
         }
     }

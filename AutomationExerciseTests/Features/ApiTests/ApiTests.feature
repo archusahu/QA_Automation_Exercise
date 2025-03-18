@@ -53,6 +53,10 @@ Scenario: : 06 PUT To All Brands List
 @Api
 Scenario Outline: 07 POST To Verify Login with valid details
 	When post 'verifyLogin' with '<UserId>' and '<Password>'
+	#When post 'searchProduct' with parameters
+	#| ParameterName | ParameterValue |
+	#| email         | <UserId>       |
+	#| password      | <Password>     |
 	Then response status code should be 'OK'
 	And response contians
 		| ResponseCode   | Message   |
@@ -70,7 +74,10 @@ Examples:
 
 	@Api
 Scenario Outline: 08 POST To Search Product
-	When post 'searchProduct' with '<Items>'
+	#When post 'searchProduct' with '<Items>'
+	When post 'searchProduct' with parameters
+	| ParameterName  | ParameterValue |
+	| search_product | <Items>        |
 	Then response status code should be 'OK'
 	#And response should contain search products '<ResponseFileName>' data
 	And 'products' should be in response '<ResponseFileName>'
