@@ -7,6 +7,7 @@ namespace ApiClient
         private readonly RestClient _restClient;
         public Client(string baseUrl)
         {
+            Console.WriteLine(" I am in Client constructor");
             var restClientOption = new RestClientOptions(baseUrl);
             _restClient = new RestClient(restClientOption);
         }
@@ -31,6 +32,14 @@ namespace ApiClient
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
             request.AddParameter("email", userId);
             request.AddParameter("password", pwd);            
+            return _restClient.Execute(request);
+        }
+
+        public RestResponse PostSearchProductRequest(string url, string product)
+        {
+            var request = new RestRequest(url) { Method = Method.Post };
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("search_product", product);
             return _restClient.Execute(request);
         }
     }

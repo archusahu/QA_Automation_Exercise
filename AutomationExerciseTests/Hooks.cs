@@ -19,12 +19,14 @@ namespace AutomationExerciseTests
 
         public Hooks(Context context)
         {
+            Console.WriteLine(" I am in hoooks constructor");
             _context = context; // Store context for later use            
         }
 
         [BeforeScenario("Api", "api")]
         public void BeforeScenarioApi()
         {
+            Console.WriteLine(" I am in BeforeScenarioApi Method");
             _context.ApiClient = new Client("https://automationexercise.com/api/");
         }
 

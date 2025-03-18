@@ -70,5 +70,16 @@ namespace AutomationExerciseTests.Steps.Then
             Console.WriteLine($"response content - {_context.ApiResponse.Content}");
             actualResponseData.Should().BeEquivalentTo(expectedResData);
         }
+
+        [Then(@"response should contain search products '([^']*)' data")]
+        public void ThenResponseShouldContainSearchProductsData(string fileSearchProduct)
+        {
+            var expectedResponse = File.ReadAllText($"Resource\\{fileSearchProduct}.json").Replace("\r", "").Replace("\n", "");
+            var expectedResData = JsonConvert.DeserializeObject<ProductsListResponse>(expectedResponse);
+            var actualResponseData = JsonConvert.DeserializeObject<ProductsListResponse>(_context.ApiResponse.Content);
+            Console.WriteLine($"response content - {_context.ApiResponse.Content}");
+            actualResponseData.Should().BeEquivalentTo(expectedResData);
+        }
+
     }
 }

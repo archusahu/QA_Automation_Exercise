@@ -65,3 +65,20 @@ Examples:
 	| automationtest-xyz@gmail.com | 1234     | 404          | User not found! |
 	| automationtest-xyz           | 1234     | 404          | User not found! |
 	| automationtest1@gmail.com    | }({      | 404          | User not found! |
+
+	@Api
+Scenario Outline: 08 POST To Search Product
+	When post 'searchProduct' with '<Items>'
+	Then response status code should be 'OK'
+	And response should contain search products '<ResponseFileName>' data
+	Examples:
+	| Items  | ResponseFileName       |
+	| top    | top-search-response    |
+	| tshirt | tshirt-search-response |
+	| jeans  | jeans-search-response  |
+	
+
+
+
+
+

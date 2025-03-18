@@ -48,6 +48,12 @@ namespace AutomationExerciseTests.Steps.When
         public void WhenPostWithAnd(string endpoint, string userId, string password)
         {
             _context.ApiResponse = _context.ApiClient.SendPostLoginRequest(endpoint, userId, password);
+        }       
+
+        [When(@"post '([^']*)' with '([^']*)'")]
+        public void WhenPostWith(string endpoint, string searchProduct)
+        {
+            _context.ApiResponse = _context.ApiClient.PostSearchProductRequest(endpoint, searchProduct);
         }
 
     }

@@ -10,6 +10,10 @@ namespace AutomationExerciseTests
 {
     public class Context
     {
+        public Context()
+        {
+            Console.WriteLine("I am in context constructor");
+        }
         public IWebDriver Driver { get; set; } // Stores WebDriver instance
 
         public HomePage HomePage { get; set; }

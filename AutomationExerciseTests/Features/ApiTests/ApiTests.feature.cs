@@ -342,6 +342,48 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("08 POST To Search Product")]
+        [NUnit.Framework.CategoryAttribute("Api")]
+        [NUnit.Framework.TestCaseAttribute("top", "top-search-response", null)]
+        [NUnit.Framework.TestCaseAttribute("tshirt", "tshirt-search-response", null)]
+        [NUnit.Framework.TestCaseAttribute("jeans", "jeans-search-response", null)]
+        public void _08POSTToSearchProduct(string items, string responseFileName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Api"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Items", items);
+            argumentsOfScenario.Add("ResponseFileName", responseFileName);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08 POST To Search Product", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 70
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 71
+ testRunner.When(string.Format("post \'searchProduct\' with \'{0}\'", items), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 72
+ testRunner.Then("response status code should be \'OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 73
+ testRunner.And(string.Format("response should contain search products \'{0}\' data", responseFileName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
