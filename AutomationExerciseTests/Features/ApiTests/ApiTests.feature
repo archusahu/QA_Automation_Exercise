@@ -6,7 +6,8 @@ A short summary of the feature
 Scenario: 01 Get All products list
 	When get 'productsList'
 	Then response status code should be 'OK'
-	And response should contain 'products-list-response' data
+	#And response should contain 'products-list-response' data
+	And 'products' should be in response 'products-list-response'
 
 @Api
 Scenario: 02 POST To All Products List
@@ -30,7 +31,8 @@ Scenario: 03 POST To Search Product without search_product parameter
 Scenario: : 04 Get All Brands List
 	When get 'brandsList'
 	Then response status code should be 'OK'
-	And response should contain all 'brands-list-response' data
+	#And response should contain all 'brands-list-response' data
+	And 'brands' should be in response 'brands-list-response'
 
 @Api
 Scenario: : 05 PUT To All Brands List
@@ -70,7 +72,8 @@ Examples:
 Scenario Outline: 08 POST To Search Product
 	When post 'searchProduct' with '<Items>'
 	Then response status code should be 'OK'
-	And response should contain search products '<ResponseFileName>' data
+	#And response should contain search products '<ResponseFileName>' data
+	And 'products' should be in response '<ResponseFileName>'
 	Examples:
 	| Items  | ResponseFileName       |
 	| top    | top-search-response    |

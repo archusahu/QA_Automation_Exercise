@@ -26,17 +26,32 @@ namespace AutomationExerciseTests.Steps.Then
         {
             var actualResponseCode = _context.ApiResponse.StatusCode;
             actualResponseCode.Should().Be(expectedResponseCode);
-        }
+        }      
 
-
-        [Then(@"response should contain '([^']*)' data")]
-        public void ThenResponseShouldContainData(string fileName)
+        [Then(@"'([^']*)' should be in response '([^']*)'")]
+        public void ThenShouldBeInResponse(string itemType, string fileName)
         {
             var expectedResponse = File.ReadAllText($"Resource\\{fileName}.json").Replace("\r", "").Replace("\n", "");
-            var expectedResData = JsonConvert.DeserializeObject<ProductsListResponse>(expectedResponse);
-            var actualResponseData = JsonConvert.DeserializeObject<ProductsListResponse>(_context.ApiResponse.Content);
-            Console.WriteLine($"response content - {_context.ApiResponse.Content}");
-            actualResponseData.Should().BeEquivalentTo(expectedResData);
+
+
+            switch (itemType.ToLower())
+            {
+                case "products":
+                    {
+                        var expectedResData = JsonConvert.DeserializeObject<ProductsListResponse>(expectedResponse);
+                        var actualResponseData = JsonConvert.DeserializeObject<ProductsListResponse>(_context.ApiResponse.Content);
+                        actualResponseData.Should().BeEquivalentTo(expectedResData);
+                        break;
+                    }
+
+                case "brands":
+                    {
+                        var expectedResData = JsonConvert.DeserializeObject<BrandsListResponse>(expectedResponse);
+                        var actualResponseData = JsonConvert.DeserializeObject<BrandsListResponse>(_context.ApiResponse.Content);
+                        actualResponseData.Should().BeEquivalentTo(expectedResData);
+                        break;
+                    }
+            }
         }
 
         [Then(@"response should contain message '([^']*)'")]
@@ -59,26 +74,6 @@ namespace AutomationExerciseTests.Steps.Then
             var expectedMessage = table.CreateInstance<ErrorResponseModel>();
             var actualResponseData = JsonConvert.DeserializeObject<ErrorResponseModel>(_context.ApiResponse.Content);            
             actualResponseData.Should().BeEquivalentTo(expectedMessage);
-        }
-
-        [Then(@"response should contain all '([^']*)' data")]
-        public void ThenResponseShouldContainAllData(string FileBrandList)
-        {
-            var expectedResponse = File.ReadAllText($"Resource\\{FileBrandList}.json").Replace("\r", "").Replace("\n", "");
-            var expectedResData = JsonConvert.DeserializeObject<BrandsListResponse>(expectedResponse);
-            var actualResponseData = JsonConvert.DeserializeObject<BrandsListResponse>(_context.ApiResponse.Content);
-            Console.WriteLine($"response content - {_context.ApiResponse.Content}");
-            actualResponseData.Should().BeEquivalentTo(expectedResData);
-        }
-
-        [Then(@"response should contain search products '([^']*)' data")]
-        public void ThenResponseShouldContainSearchProductsData(string fileSearchProduct)
-        {
-            var expectedResponse = File.ReadAllText($"Resource\\{fileSearchProduct}.json").Replace("\r", "").Replace("\n", "");
-            var expectedResData = JsonConvert.DeserializeObject<ProductsListResponse>(expectedResponse);
-            var actualResponseData = JsonConvert.DeserializeObject<ProductsListResponse>(_context.ApiResponse.Content);
-            Console.WriteLine($"response content - {_context.ApiResponse.Content}");
-            actualResponseData.Should().BeEquivalentTo(expectedResData);
         }
 
     }
